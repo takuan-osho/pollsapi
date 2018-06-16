@@ -21,6 +21,7 @@ class PollViewSet(viewsets.ModelViewSet):
             raise PermissionDenied("You can not delete this poll.")
         return super().destroy(request, *args, **kwargs)
 
+
 class ChoiseList(generics.ListCreateAPIView):
     def get_queryset(self):
         queryset = Choice.objects.filter(poll_id=self.kwargs['pk'])
